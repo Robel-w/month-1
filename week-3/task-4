@@ -1,0 +1,27 @@
+class Vehicle:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+
+    def describe(self):
+        return f"Vehicle: {self.year} {self.brand} {self.model}"
+
+
+class Car(Vehicle):
+    def __init__(self, brand, model, year, num_doors):
+        super().__init__(brand, model, year)
+        self.num_doors = num_doors
+
+    def describe(self):
+        return f"Car: {self.year} {self.brand} {self.model} with {self.num_doors} doors"
+
+
+class Bike(Vehicle):
+    def __init__(self, brand, model, year, has_gears):
+        super().__init__(brand, model, year)
+        self.has_gears = has_gears
+
+    def describe(self):
+        gear_info = "with gears" if self.has_gears else "without gears"
+        return f"Bike: {self.year} {sel
