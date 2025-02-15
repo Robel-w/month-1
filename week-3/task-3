@@ -1,0 +1,31 @@
+class Vehicle:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+
+    def display_info(self):
+        print(f"{self.year} {self.brand} {self.model}")
+
+
+class Car(Vehicle):
+    def __init__(self, brand, model, year, number_of_doors):
+        super().__init__(brand, model, year)
+        self.number_of_doors = number_of_doors
+
+    def display_info(self):
+        super().display_info()
+        print(f"Number of doors: {self.number_of_doors}")
+
+
+class Bike(Vehicle):
+    def __init__(self, brand, model, year, has_gears):
+        super().__init__(brand, model, year)
+        self.has_gears = has_gears
+
+    def display_info(self):
+        super().display_info()
+        print(f"Has gears: {'Yes' if self.has_gears else 'No'}")
+
+
+
