@@ -1,0 +1,69 @@
+class Vehicle:
+    def __init__(self, brand, model, year):
+        self.__brand = brand  # Private attribute
+        self.__model = model  # Private attribute
+        self.__year = year    # Private attribute
+
+    def get_brand(self):
+        return self.__brand
+
+    def get_model(self):
+        return self.__model
+
+    def get_year(self):
+        return self.__year
+
+    def set_brand(self, brand):
+        self.__brand = brand
+
+    def set_model(self, model):
+        self.__model = model
+
+    def set_year(self, year):
+        if year > 1885: 
+            self.__year = year
+        else:
+            raise ValueError("Invalid year for a vehicle.")
+
+    def describe(self):
+        return f"Vehicle: {self.__year} {self.__brand} {self.__model}"
+
+
+class Car(Vehicle):
+    def __init__(self, brand, model, year, num_doors):
+        super().__init__(brand, model, year)
+        self.__num_doors = num_doors  # Private attribute
+
+    def get_num_doors(self):
+        return self.__num_doors
+
+    def set_num_doors(self, num_doors):
+        if num_doors > 0:
+            self.__num_doors = num_doors
+        else:
+            raise ValueError("Number of doors must be positive.")
+
+    def describe(self):
+        return f"Car: {self.get_year()} {self.get_brand()} {self.get_model()} with {self.__num_doors} doors"
+
+
+class Bike(Vehicle):
+    def __init__(self, brand, model, year, has_gears):
+        super().__init__(brand, model, year)
+        self.__has_gears = has_gears  # Private attribute
+
+    def get_has_gears(self):
+        return self.__has_gears
+
+    def set_has_gears(self, has_gears):
+        self.__has_gears = has_gears
+
+    def describe(self):
+        gear_info = "with gears" if self.__has_gears else "without gears"
+        return f"Bike: {self.get_year()} {self.get_brand()} {self.get_model()} {gear_info}"
+
+
+def print_vehicle_description(vehicle):
+    print(vehicle.describe())
+
+
